@@ -13,9 +13,6 @@
 		header('HTTP/1.1 500 Internal Server Error');
 	}
 
-	set_exception_handler('handleException');
-	set_error_handler("handleError");
-
 	eNotasGW::configure(array(
 		'apiKey' => '<api key>'
 	));
@@ -56,6 +53,8 @@
 				}
 				break;
 			default:
+				set_exception_handler('handleException');
+				set_error_handler("handleError");
 				break;
 		}
 	}
